@@ -1,17 +1,17 @@
 .flashbox
-  %p グループを作成しました
+  =flash[:success]
 
 
 .chatside
   .chatside__side-header
-    %p User name
+    %h3 current_user.name
     %ul
       %li
         =link_to "xxx@co.jp", class: "new-group" do
           = fa_icon 'edit'
       %li
-        =link_to "xxx@co.jp", class: "new-group" do
-          = fa_icon 'cog'
+        =link_to edit_user_path(current_user) do
+          = fa_icon 'cog', class: 'icon'
 
   .chatside__groups
     .chatside__groups__group
