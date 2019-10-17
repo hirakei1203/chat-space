@@ -26,14 +26,16 @@ $send-color:#38AEF0;
       }
     }
     &__edit-botton {
+      p{
       position: absolute;
-      margin-top: 52px;
+      margin-top: 30px;
       top:0px;
       right: 40px;
       line-height:40px;
       padding: 0 20px;
       border: 1px $send-color solid;
       color:$send-color;
+      }
     }
   }
 

@@ -6,12 +6,13 @@
   .chat-main__main-header
     .chat-main__main-header__left-box
       .chat-main__main-header__left-box__current-group
-        %p 現在のグループ名
+        現在のグループ名
       .chat-main__main-header__left-box__member-list
         %p メンバーリスト: User name
     
     .chat-main__main-header__edit-botton
-      %p Edit
+      = link_to edit_group_path(current_user.groups.ids) do
+        %p Edit
 
   .chat-main__messages
     .chat-main__messages__message

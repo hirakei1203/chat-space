@@ -1,7 +1,8 @@
 
 .chatside
   .chatside__side-header
-    %h3 current_user.name
+    %h3.chatside__side-header__name
+      = current_user.name
     %ul
       %li
         =link_to new_group_path do
@@ -13,9 +14,8 @@
   .chatside__groups
     - current_user.groups.each do |group|
       .chatside__groups__group
-        - current_user.groups.each do |group|
-          = link_to group_messages_path(group) do
-            .chatside__groups__group__name
-              = group.name
-            .chatside__groups__group__message
-              まだメッセージは有りません
+        = link_to group_messages_path(group) do
+          .chatside__groups__group__name
+            = group.name
+          .chatside__groups__group__message
+            まだメッセージは有りません
