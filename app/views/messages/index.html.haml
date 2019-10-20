@@ -17,14 +17,22 @@
     .chat-main__messages
       = render @messages
 
-    .chat-main__form
+    -# .chat-main__form
+    -#   = form_for [@group, @message] do |f|
+    -#     = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+    -#     .chat-main__form__mask
+    -#       = f.label :image, class: 'chat-main__form__mask__image' do
+    -#         = fa_icon 'picture-o', class: 'chat-main__form__mask__icon'
+    -#         = f.file_field :image, class: 'chat-main__form__mask__hidden'
+    -#     = f.submit 'Send', class: 'chat-main__form__submit'
+    .form
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-        .chat-main__form__mask
-          = f.label :image, class: 'chat-main__form__mask__image' do
-            = fa_icon 'picture-o', class: 'chat-main__form__mask__icon'
-            = f.file_field :image, class: 'chat-main__form__mask__hidden'
-        = f.submit 'Send', class: 'chat-main__form__submit'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
 
 
     -# .chat-main__form
