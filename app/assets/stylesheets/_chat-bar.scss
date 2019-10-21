@@ -19,7 +19,7 @@ $send-color:#38AEF0;
       }
       &__member-list {
         padding-top: 15px;
-        p {
+        &__content {
           color: $date-color;
           font-size:12px;
         }
@@ -43,6 +43,7 @@ $send-color:#38AEF0;
     height: calc(100vh - 190px);
     background-color:#fafafa;
     padding: 46px 40px;
+    overflow: scroll;
     &__message {
       padding-bottom: 40px;
       &__upper-info {
@@ -62,66 +63,23 @@ $send-color:#38AEF0;
         padding-top: 10px;
         font-size: 14px;
         color:$message-color;
+        margin-bottom: 10px;
       }
     }
   }
 
-  // &__form {
-  //   height:90px;
-  //   background-color: #ddd;
-  //   padding: 20px 40px;
-  //   width: 100%;
-  //   position: relative; 
-    
-  //   .form__message {
-  //     line-height: 50px;
-  //     background-color:white;
-  //     font-size:16px;
-  //     color:$message-color;
-  //     width: calc(100% - 100px);
-  //     padding:0 10px;
-  //     }
-  //   .chat-main__form__mask {
-  //     .chat-main__form__mask__image {
-  //       display: inline-block;
-  //       position: absolute;
-  //       right: 165px;
-  //       top: 35px;
-  //     .chat-main__form__mask__icon{
-  //       font-size: 1.3rem;
-  //       top: 100px;
-  //       right: 40px;
-  //       cursor: pointer;
-  //          }
-  //     .chat-main__form__mask__hidden{
-  //       display: none;
-  //       margin-left: 10px;
-  //         }
-  //         }
-  //       }
-  //   .chat-main__form__submit {
-  //     height: 50px;  
-  //     background-color:$send-color;
-  //     margin-left:15px;
-  //     width: 100px;
-  //     color:white;
-  //     cursor: pointer;
-  //     position:absolute;
-  //     right: 40px;
-  //     top: 20px;
-  //        }
-        
-  //     }
+  
   .form {
     background-color: #DDDDDD;
     box-sizing: border-box;
     height: 90px;
-    padding: 20px 50px 20px 40px;
+    padding: 20px 40px;
     &__message {
       border: none;
       float: left;
       height: 50px;
       width: calc(100% - 150px);
+      padding-left: 10px;
     }
     &__mask {
       background-color: white;
@@ -148,46 +106,3 @@ $send-color:#38AEF0;
     }
   }
 }
-
-// &__form {
-//   height:90px;
-//   background-color: #ddd;
-//   padding: 20px 40px;
-//     &__new-message {
-//       display: flex;
-//       &__input-box{   
-//         width: 100%;
-//         position: relative; 
-//         .text {
-//           line-height: 50px;
-//           background-color:white;
-//           font-size:16px;
-//           color:$message-color;
-//           width: 100%;
-//           padding:0 10px;
-//         }
-//         label {
-//           display: inline-block;
-//           position: absolute;
-//           font-size: 1.3rem;
-//           top: 10px;
-//           right: 10px;
-//           cursor: pointer;
-//           #upload-icon{
-//             display: none;
-//           }
-//         }
-//       }
-//       &__commit {
-//        .submit_btn {
-//          height: 50px;  
-//          background-color:$send-color;
-//          margin-left:15px;
-//          width: 100px;
-//          color:white;
-//          cursor: pointer;
-//        }
-//       }
-//     }
-//    }
-// }

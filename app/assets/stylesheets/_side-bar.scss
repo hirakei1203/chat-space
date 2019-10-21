@@ -2,7 +2,6 @@
 $sidebar-color:#FFFFFF;
 @mixin group-name{
   font-size:15px;
-  font-weight: bold;
   color: $sidebar-color;
 }
 
@@ -38,6 +37,7 @@ $sidebar-color:#FFFFFF;
       display: flex;
       li{
       margin-left: 0.3rem;
+      font-size: 1em;
         .icon{
           color:white;
         }
