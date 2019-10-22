@@ -1,6 +1,7 @@
 $(function(){
 
   function buildHTML(message){
+    let content = message.content ? `${message.content}` : ""
     let image = message.image ? `<img src= ${message.image}>` : ""
       let html = `<div class="chat-main__messages__message" data-id = ${message.id}>
                     <div class="chat-main__messages__message__upper-info">
@@ -19,25 +20,25 @@ $(function(){
       return html;
   };
 
-  let buildMessageHTML = function(message) {
-    let content = message.content ? `${message.content}` : ""
-    let image = message.image ? `<img src= ${message.image}>` : ""
-      let html = `<div class="chat-main__messages__message" data-id = ${message.id}>
-                    <div class="chat-main__messages__message__upper-info">
-                      <div class="chat-main__messages__message__upper-info__talker">
-                        ${message.name}
-                      </div>
-                      <div class="chat-main__messages__message__upper-info__date">
-                        ${message.created_at}
-                      </div>
-                    </div>
-                    <div class="chat-main__messages__message__text">
-                      ${content}
-                      ${image}
-                    </div>
-                  </div>`
-      return html;
-  };
+  // let buildMessageHTML = function(message) {
+  //   let content = message.content ? `${message.content}` : ""
+  //   let image = message.image ? `<img src= ${message.image}>` : ""
+  //     let html = `<div class="chat-main__messages__message" data-id = ${message.id}>
+  //                   <div class="chat-main__messages__message__upper-info">
+  //                     <div class="chat-main__messages__message__upper-info__talker">
+  //                       ${message.name}
+  //                     </div>
+  //                     <div class="chat-main__messages__message__upper-info__date">
+  //                       ${message.created_at}
+  //                     </div>
+  //                   </div>
+  //                   <div class="chat-main__messages__message__text">
+  //                     ${content}
+  //                     ${image}
+  //                   </div>
+  //                 </div>`
+  //     return html;
+  // };
 
 
   $('#form__switch').on('submit',function(e){
@@ -69,7 +70,6 @@ $(function(){
   
   let reloadMessages = function() {
     let last_message_id = $('.chat-main__messages__message:last').data("id")
-    console.log(last_message_id);
     $.ajax({
       url: "api/messages",
       type: 'get',
@@ -78,17 +78,14 @@ $(function(){
     })
     .done(function(messages) { 
       let insertHTML ='';
-      messages.forEach(function(message){
-        console.log(message);
-        insertHTML = buildMessageHTML(message);
-        console.log(insertHTML);
+        messages.forEach(function(message){
+        insertHTML = buildHTML(message);
         $('.chat-main__messages').append(insertHTML);
       });
      $('.chat-main__messages').animate({scrollTop: $('.chat-main__messages')[0].scrollHeight});
 
     })
     .fail(function() {
-      console.log('error');
     });
   };
 
