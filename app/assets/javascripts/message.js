@@ -20,26 +20,6 @@ $(function(){
       return html;
   };
 
-  // let buildMessageHTML = function(message) {
-  //   let content = message.content ? `${message.content}` : ""
-  //   let image = message.image ? `<img src= ${message.image}>` : ""
-  //     let html = `<div class="chat-main__messages__message" data-id = ${message.id}>
-  //                   <div class="chat-main__messages__message__upper-info">
-  //                     <div class="chat-main__messages__message__upper-info__talker">
-  //                       ${message.name}
-  //                     </div>
-  //                     <div class="chat-main__messages__message__upper-info__date">
-  //                       ${message.created_at}
-  //                     </div>
-  //                   </div>
-  //                   <div class="chat-main__messages__message__text">
-  //                     ${content}
-  //                     ${image}
-  //                   </div>
-  //                 </div>`
-  //     return html;
-  // };
-
 
   $('#form__switch').on('submit',function(e){
     e.preventDefault();
