@@ -2,89 +2,41 @@ $(function(){
 
   function buildHTML(message){
     let image = message.image ? `<img src= ${message.image}>` : ""
-    let html = `<div class="chat-main__messages__message">
-                  <div class="chat-main__messages__message__upper-info">
-                    <div class="chat-main__messages__message__upper-info__talker">
-                    ${message.name}
+      let html = `<div class="chat-main__messages__message" data-id = ${message.id}>
+                    <div class="chat-main__messages__message__upper-info">
+                      <div class="chat-main__messages__message__upper-info__talker">
+                        ${message.name}
+                      </div>
+                      <div class="chat-main__messages__message__upper-info__date">
+                        ${message.created_at}
+                      </div>
                     </div>
-                  <div class="chat-main__messages__message__upper-info__date">
-                    ${message.created_at}
-                  </div>
-                </div>
-                <div class="chat-main__messages__message__text">
-                  ${message.content}
-                  ${image}
-                </div>
-                </div>`
-                return html;
-  }
-
-  let reloadMessages = function() {
-    last_message_id = params[:id].to_i
-    $.ajax({
-      url: "api/messages",
-      type: 'get',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      console.log('success');
-    })
-    .fail(function() {
-      console.log('error');
-    });
+                    <div class="chat-main__messages__message__text">
+                      ${message.content}
+                      ${image}
+                    </div>
+                  </div>`
+      return html;
   };
 
   let buildMessageHTML = function(message) {
-    if (message.content && message.image.url) {
-       `let html = <div class="message" data-id = ${message.id}>
-         <div class="upper-message">
-           <div class="upper-message__user-name">
-            ${message.user_name}
-           </div>
-           <div class="upper-message__date">
-            &{message.created_at}
-           </div>
-         </div>
-         <div class="lower-message">
-           <p class="lower-message__content">
-            ${message.content}
-           </p> 
-           <img src=${message.image.url}, class="lower-message__image" >
-         </div> 
-       </div>`
-    } else if (message.content) {
-      `var html = <div class="message" data-id=${message.id}>
-         <div class="upper-message">
-           <div class="upper-message__user-name">
-            ${message.user_name}
-           </div>
-           <div class="upper-message__date">
-            ${message.created_at}
-           </div>
-         </div>
-         <div class="lower-message">
-           <p class="lower-message__content">
-            ${message.content}
-           </p>
-         </div>
-       </div>`
-    } else if (message.image.url) {
-      var html = `<div class="message" data-id=${message.id}>
-         <div class="upper-message"> 
-           <div class="upper-message__user-name">
-            ${message.user_name} 
-           </div>
-           <div class="upper-message__date"> 
-            ${message.created_at} 
-           </div>
-         </div>
-         <div class="lower-message"> 
-          <img src="${message.image.url}, "class="lower-message__image" >
-        </div>
-      </div>`
-    };
-    return html;
+    let content = message.content ? `${message.content}` : ""
+    let image = message.image ? `<img src= ${message.image}>` : ""
+      let html = `<div class="chat-main__messages__message" data-id = ${message.id}>
+                    <div class="chat-main__messages__message__upper-info">
+                      <div class="chat-main__messages__message__upper-info__talker">
+                        ${message.name}
+                      </div>
+                      <div class="chat-main__messages__message__upper-info__date">
+                        ${message.created_at}
+                      </div>
+                    </div>
+                    <div class="chat-main__messages__message__text">
+                      ${content}
+                      ${image}
+                    </div>
+                  </div>`
+      return html;
   };
 
 
@@ -114,19 +66,25 @@ $(function(){
     })
   });
 
-  var reloadMessages = function() {
-    last_message_id = params[:id].to_i
+  
+  let reloadMessages = function() {
+    let last_message_id = $('.chat-main__messages__message:last').data("id")
+    console.log(last_message_id);
     $.ajax({
-      url: "group_messages",
+      url: "api/messages",
       type: 'get',
       dataType: 'json',
       data: {id: last_message_id}
     })
-    .done(function(messages) {
-      let insertHTML = 'buildMessageHTML';
-      $('').append(insertHTML);
-     
-
+    .done(function(messages) { 
+      let insertHTML ='';
+      messages.forEach(function(message){
+        console.log(message);
+        insertHTML = buildMessageHTML(message);
+        console.log(insertHTML);
+        $('.chat-main__messages').append(insertHTML);
+      });
+     $('.chat-main__messages').animate({scrollTop: $('.chat-main__messages')[0].scrollHeight});
 
     })
     .fail(function() {
@@ -134,5 +92,6 @@ $(function(){
     });
   };
 
-
+  setInterval(reloadMessages, 5000);
 });
+
