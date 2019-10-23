@@ -18,9 +18,8 @@
 .byebug_history
 .file
 
-
 # Ignore uploaded files in development
  public/uploads/*
  config/secrets.yml
-group-materials/
-user-materials/
+ group-materials/
+ user-materials/
