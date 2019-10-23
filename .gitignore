@@ -13,13 +13,12 @@
 !/log/.keep
 !/tmp/.keep
 
-
 # Ignore Byebug command history file.
 .byebug_history
 .file
 
 # Ignore uploaded files in development
- public/uploads/*
- config/secrets.yml
- group-materials/
- user-materials/
+public/uploads/*
+config/secrets.yml
+group-materials/
+user-materials/
