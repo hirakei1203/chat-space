@@ -10,6 +10,7 @@ $sidebar-color:#FFFFFF;
   font-weight: bold;
   margin:5px 0 40px 0;
   color: $sidebar-color;
+  text-decoration: none;
 }
 
 * {
@@ -43,15 +44,19 @@ $sidebar-color:#FFFFFF;
         }
       }
     }
-
    }
   &__groups {
     height: calc(100vh - 100px);
     width: 300px;
     padding: 20px 20px 0;
     background-color: #2f3e51;
+    overflow: scroll;
+    text-decoration:none;
     &__group__name{
     @include group-name;
+      &__underbar{
+        text-decoration: none;
+      }
     }
     &__group__message{
     @include message;
