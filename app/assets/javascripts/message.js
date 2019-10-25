@@ -15,7 +15,7 @@ $(function(){
                     <div class="chat-main__messages__message__text">
                       ${message.content}
                       <div class="chat-main__messages__message__text__image">
-                      ${image}
+                        ${image}
                       </div>
                     </div>
                   </div>`
