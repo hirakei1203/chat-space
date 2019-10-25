@@ -64,6 +64,9 @@ $send-color:#38AEF0;
         font-size: 14px;
         color:$message-color;
         margin-bottom: 10px;
+        &__image{
+          display: block;
+        }
       }
     }
   }
