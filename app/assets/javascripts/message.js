@@ -2,7 +2,7 @@ $(function(){
 
   function buildHTML(message){
     let content = message.content ? `${message.content}` : ""
-    let image = message.image ? `<img src= ${message.image} class="chat-main__messages__message__text__image">` : ""
+    let image = message.image ? `<img src= ${message.image}>` : ""
       let html = `<div class="chat-main__messages__message" data-id = ${message.id}>
                     <div class="chat-main__messages__message__upper-info">
                       <div class="chat-main__messages__message__upper-info__talker">
@@ -14,7 +14,9 @@ $(function(){
                     </div>
                     <div class="chat-main__messages__message__text">
                       ${message.content}
+                      <div class="chat-main__messages__message__text__image">
                       ${image}
+                      </div>
                     </div>
                   </div>`
       return html;
