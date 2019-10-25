@@ -59,17 +59,19 @@ $send-color:#38AEF0;
           margin-left:10px;
         }
       }
-      &__text{
-        padding-top: 10px;
-        font-size: 14px;
-        color:$message-color;
-        margin-bottom: 10px;
+      &__lower-info {
+        &__text{
+          padding-top: 10px;
+          font-size: 14px;
+          color:$message-color;
+          margin-bottom: 10px;
+        }
         &__image{
           display: block;
         }
-      }
     }
   }
+}
 
   
   .form {
