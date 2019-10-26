@@ -12,13 +12,10 @@ $(function(){
                         ${message.created_at}
                       </div>
                     </div>
-                    <div class="chat-main__messages__message__lower-info">
-                      <div class="chat-main__messages__message__lower-info__text">
+                    <div class="chat-main__messages__message__text">
                         ${message.content}
-                      </div>
-                      <div class="chat-main__messages__message__lower-info__image">
                         ${image}
-                      </div>
+                    </div>
                     </div>
                   </div>`
       return html;
