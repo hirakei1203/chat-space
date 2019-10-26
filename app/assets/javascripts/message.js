@@ -66,8 +66,9 @@ $(function(){
         insertHTML = buildHTML(message);
         $('.chat-main__messages').append(insertHTML);
       });
+     if (messages.length !== 0 ){
      $('.chat-main__messages').animate({scrollTop: $('.chat-main__messages')[0].scrollHeight});
-
+     }
     })
     .fail(function() {
     });
